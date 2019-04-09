@@ -1,0 +1,41 @@
+{
+  "name": "front_end",
+  "version": "0.0.1",
+  "description": "Website front end",
+  "main": "index.js",
+  "repository": "https://github.com/wallyfaye/website",
+  "author": "Wally Faye",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn run start:install && yarn run start:app",
+    "start:install": "yarn install",
+    "start:app": "webpack-dev-server --color",
+    "webpack:build": "webpack"    
+  },
+  "dependencies": {
+    "react": "*",
+    "react-dom": "*"
+  },
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/preset-env": "*",
+    "@babel/preset-react": "*",
+    "babel-eslint": "*",
+    "babel-loader": "*",
+    "clean-webpack-plugin": "*",
+    "eslint": "*",
+    "eslint-config-airbnb": "*",
+    "eslint-loader": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jsx-a11y": "*",
+    "eslint-plugin-react": "*",
+    "express": "*",
+    "file-loader": "*",
+    "html-webpack-plugin": "*",
+    "html-webpack-template": "*",
+    "webpack": "*",
+    "webpack-cli": "*",
+    "webpack-dev-middleware": "*",
+    "webpack-dev-server": "*"
+  }
+}
