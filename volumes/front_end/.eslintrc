@@ -8,7 +8,7 @@
     "plugin:jest/recommended"
   ],
   "globals": {
-      "APP_MOUNT_ID": "readonly"
+    "APP_MOUNT_ID": "readonly"
   },
   "parser": "babel-eslint",
   "plugins": ["jest"]

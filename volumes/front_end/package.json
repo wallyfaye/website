@@ -12,7 +12,8 @@
     "start:app": "webpack-dev-server --color",
     "webpack:build": "webpack",
     "test": "yarn run test:jest",
-    "test:jest": "jest --colors"
+    "test:jest": "jest --colors",
+    "test:update": "jest -u --colors"
   },
   "dependencies": {
     "react": "*",

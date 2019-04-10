@@ -3,7 +3,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const { TEST_VAR, APP_MOUNT_ID } = process.env
+const { WEBSITE_NAME, APP_MOUNT_ID } = process.env
 
 module.exports = {
   mode: 'development',
@@ -47,7 +47,7 @@ module.exports = {
       cleanAfterEveryBuildPatterns: ['dist']
     }),
     new HtmlWebpackPlugin({
-      title: `${TEST_VAR}`,
+      title: `${WEBSITE_NAME}`,
       inject: false,
       template: './src/index.ejs',
       minify: {

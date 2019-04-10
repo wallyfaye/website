@@ -1,0 +1,2 @@
+docker-compose down && \
+  NPM_SCRIPT=test:update docker-compose up
