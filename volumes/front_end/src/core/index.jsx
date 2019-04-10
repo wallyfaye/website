@@ -1,7 +1,22 @@
+import PropTypes from 'prop-types';
 import React from 'react';
 
-export default () => (
+/**
+ * @param {Object} [param] - this is object param.
+ * @param {number} [param.siteName=Website] - this is siteName param.
+ */
+const Core = ({ siteName = 'Website' }) => (
   <div>
-    Website
+    <p>{siteName}</p>
   </div>
 );
+
+export default Core;
+
+Core.defaultProps = {
+  siteName: 'Website',
+};
+
+Core.propTypes = {
+  siteName: PropTypes.string,
+};

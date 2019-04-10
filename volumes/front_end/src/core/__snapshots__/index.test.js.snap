@@ -2,6 +2,8 @@
 
 exports[`Core should render 1`] = `
 <div>
-  Website
+  <p>
+    Website
+  </p>
 </div>
 `;

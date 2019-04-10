@@ -7,6 +7,7 @@
   "author": "Wally Faye",
   "license": "MIT",
   "scripts": {
+    "docs": "esdoc",
     "start": "yarn run start:install && yarn run start:app",
     "start:install": "yarn install",
     "start:app": "webpack-dev-server --color",
@@ -16,6 +17,7 @@
     "test:update": "jest -u --colors"
   },
   "dependencies": {
+    "prop-types": "*",
     "react": "*",
     "react-dom": "*"
   },
@@ -27,6 +29,9 @@
     "babel-loader": "*",
     "babel-jest": "*",
     "clean-webpack-plugin": "*",
+    "esdoc": "*",
+    "esdoc-jsx-plugin": "*",
+    "esdoc-standard-plugin": "*",
     "eslint": "*",
     "eslint-config-airbnb": "*",
     "eslint-loader": "*",
