@@ -1,0 +1,2 @@
+docker-compose down && \
+  NPM_SCRIPT=start:install docker-compose up
