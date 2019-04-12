@@ -1,16 +1,9 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ErrorBoundary from './errorBoundary';
-import Loading from './loading';
-
-const Core = React.lazy(() => import('./core'));
+import App from './app';
 
 ReactDOM.render(
-  <ErrorBoundary>
-    <Suspense fallback={<Loading />}>
-      <Core />
-    </Suspense>
-  </ErrorBoundary>,
+  <App />,
   document.getElementById(APP_MOUNT_ID),
 );
