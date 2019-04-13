@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl" href>
-  <title data-ice="title">Test | front_end</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">src/errorBoundary/index.jsx | front_end</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -37,46 +37,74 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><h1>Test</h1>
-<table class="test-summary">
-  <thead>
-    <tr>
-      <td class="test-description">Description</td>
-      <td class="test-target">Identifier</td>
-    </tr>
-  </thead>
+<div class="content" data-ice="content"><h1 data-ice="title">src/errorBoundary/index.jsx</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import PropTypes from &apos;prop-types&apos;;
+import React, { Component } from &apos;react&apos;;
 
-  <tbody data-ice="tests"><tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span><a href="test-file/src/app/index.test.js.html#lineNumber6"><p>App should render</p>
-</a></span></td>
-  <td data-ice="testTarget" class="test-target"><span>App</span></td>
-</tr>
+import ErrorPage from &apos;../errorPage&apos;;
 
-<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span><a href="test-file/src/core/index.test.js.html#lineNumber6"><p>Core should render</p>
-</a></span></td>
-  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-Core">Core</a></span></td>
-</tr>
+/**
+ * ErrorBoundary catches errors, shows ErrorPage and logs the error.
+ */
+class ErrorBoundary extends Component {
+  
+  /**
+   * @param {object} props - properties.
+   */
+  constructor(props) {
+    super(props);
 
-<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span><a href="test-file/src/errorBoundary/index.test.js.html#lineNumber13"><p>ErrorBoundary should render</p>
-</a></span></td>
-  <td data-ice="testTarget" class="test-target"><span><a href="class/src/errorBoundary/index.jsx~ErrorBoundary.html">ErrorBoundary</a></span></td>
-</tr>
+    /**
+     * @type {object}
+     * @property {boolean} hasError if an error has been encountered
+     */
+    this.state = { hasError: false };
+  }
 
-<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span><a href="test-file/src/errorPage/index.test.js.html#lineNumber6"><p>ErrorPage should render</p>
-</a></span></td>
-  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-ErrorPage">ErrorPage</a></span></td>
-</tr>
+  /**
+   * @param {Error} error - an error object.
+   */
+  static getDerivedStateFromError(error) {
+    const hasError = !!error;
+    return {
+      hasError,
+    };
+  }
 
-<tr class="test-interface" data-ice="testInterface" style="display: none;" data-test-depth="0">
-  <td data-ice="testDescription" style="padding-left: 10px"><span><a href="test-file/src/loading/index.test.js.html#lineNumber6"><p>Loading should render</p>
-</a></span></td>
-  <td data-ice="testTarget" class="test-target"><span><a href="function/index.html#static-function-Loading">Loading</a></span></td>
-</tr>
-</tbody>
-</table>
+  /**
+   * @param {Error} error - an error object.
+   * @param {object} info - info about the error.
+   */
+  componentDidCatch(error, info) {
+    console.log(error, info);
+  }
+
+  /**
+   * Displays ErrorPage if there are errors
+   */
+  render() {
+    const { hasError } = this.state;
+    const { children } = this.props;
+
+    if (hasError) {
+      return &lt;ErrorPage /&gt;;
+    }
+
+    return children;
+  }
+}
+
+export default ErrorBoundary;
+
+ErrorBoundary.defaultProps = {
+  children: null,
+};
+
+ErrorBoundary.propTypes = {
+  children: PropTypes.element,
+};
+</code></pre>
+
 </div>
 
 <footer class="footer">

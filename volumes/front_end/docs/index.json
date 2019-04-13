@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/core/index.jsx",
-    "content": "import PropTypes from 'prop-types';\nimport React from 'react';\n\n/**\n * @param {Object} [param] - this is object param.\n * @param {number} [param.siteName=Website] - this is siteName param.\n */\nconst Core = ({ siteName = 'Website' }) => (\n  <div>\n    <p>{siteName}</p>\n  </div>\n);\n\nexport default Core;\n\nCore.defaultProps = {\n  siteName: 'Website',\n};\n\nCore.propTypes = {\n  siteName: PropTypes.string,\n};\n",
+    "content": "import PropTypes from 'prop-types';\nimport React from 'react';\n\n/**\n * @param {Object} [param] - this is object param.\n * @param {number} [param.siteName=Website] - this is siteName param.\n */\nconst Core = ({ siteName }) => (\n  <div>\n    <p>{siteName}</p>\n  </div>\n);\n\nexport default Core;\n\nCore.defaultProps = {\n  siteName: 'Website',\n};\n\nCore.propTypes = {\n  siteName: PropTypes.string,\n};\n",
     "static": true,
     "longname": "/home/node/app/src/core/index.jsx",
     "access": "public",
@@ -618,8 +618,207 @@
   {
     "__docId__": 50,
     "kind": "file",
+    "name": "src/errorBoundary/index.jsx",
+    "content": "import PropTypes from 'prop-types';\nimport React, { Component } from 'react';\n\nimport ErrorPage from '../errorPage';\n\n/**\n * ErrorBoundary catches errors, shows ErrorPage and logs the error.\n */\nclass ErrorBoundary extends Component {\n  \n  /**\n   * @param {object} props - properties.\n   */\n  constructor(props) {\n    super(props);\n\n    /**\n     * @type {object}\n     * @property {boolean} hasError if an error has been encountered\n     */\n    this.state = { hasError: false };\n  }\n\n  /**\n   * @param {Error} error - an error object.\n   */\n  static getDerivedStateFromError(error) {\n    const hasError = !!error;\n    return {\n      hasError,\n    };\n  }\n\n  /**\n   * @param {Error} error - an error object.\n   * @param {object} info - info about the error.\n   */\n  componentDidCatch(error, info) {\n    console.log(error, info);\n  }\n\n  /**\n   * Displays ErrorPage if there are errors\n   */\n  render() {\n    const { hasError } = this.state;\n    const { children } = this.props;\n\n    if (hasError) {\n      return <ErrorPage />;\n    }\n\n    return children;\n  }\n}\n\nexport default ErrorBoundary;\n\nErrorBoundary.defaultProps = {\n  children: null,\n};\n\nErrorBoundary.propTypes = {\n  children: PropTypes.element,\n};\n",
+    "static": true,
+    "longname": "/home/node/app/src/errorBoundary/index.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 51,
+    "kind": "class",
+    "name": "ErrorBoundary",
+    "memberof": "src/errorBoundary/index.jsx",
+    "static": true,
+    "longname": "src/errorBoundary/index.jsx~ErrorBoundary",
+    "access": "public",
+    "export": true,
+    "importPath": "front_end/src/errorBoundary/index.jsx",
+    "importStyle": "ErrorBoundary",
+    "description": "ErrorBoundary catches errors, shows ErrorPage and logs the error.",
+    "lineNumber": 9,
+    "interface": false,
+    "extends": [
+      "react~Component"
+    ]
+  },
+  {
+    "__docId__": 52,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/errorBoundary/index.jsx~ErrorBoundary",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/errorBoundary/index.jsx~ErrorBoundary#constructor",
+    "access": "public",
+    "description": "",
+    "lineNumber": 14,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "props",
+        "description": "properties."
+      }
+    ]
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "state",
+    "memberof": "src/errorBoundary/index.jsx~ErrorBoundary",
+    "static": false,
+    "longname": "src/errorBoundary/index.jsx~ErrorBoundary#state",
+    "access": "public",
+    "description": "",
+    "lineNumber": 21,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "hasError",
+        "description": "if an error has been encountered"
+      }
+    ],
+    "type": {
+      "nullable": null,
+      "types": [
+        "object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "method",
+    "name": "getDerivedStateFromError",
+    "memberof": "src/errorBoundary/index.jsx~ErrorBoundary",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/errorBoundary/index.jsx~ErrorBoundary.getDerivedStateFromError",
+    "access": "public",
+    "description": "",
+    "lineNumber": 27,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Error"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "error",
+        "description": "an error object."
+      }
+    ],
+    "return": {
+      "types": [
+        "{\"hasError\": *}"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "method",
+    "name": "componentDidCatch",
+    "memberof": "src/errorBoundary/index.jsx~ErrorBoundary",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/errorBoundary/index.jsx~ErrorBoundary#componentDidCatch",
+    "access": "public",
+    "description": "",
+    "lineNumber": 38,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Error"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "error",
+        "description": "an error object."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "info",
+        "description": "info about the error."
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 56,
+    "kind": "method",
+    "name": "render",
+    "memberof": "src/errorBoundary/index.jsx~ErrorBoundary",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/errorBoundary/index.jsx~ErrorBoundary#render",
+    "access": "public",
+    "description": "Displays ErrorPage if there are errors",
+    "lineNumber": 45,
+    "params": [],
+    "return": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "file",
+    "name": "src/errorPage/index.jsx",
+    "content": "import React from 'react';\n\n/**\n * Shows a error indicator\n */\nconst ErrorPage = () => (\n  <div><p>Something went wrong.</p></div>\n);\n\nexport default ErrorPage;\n",
+    "static": true,
+    "longname": "/home/node/app/src/errorPage/index.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 58,
+    "kind": "function",
+    "name": "ErrorPage",
+    "memberof": "src/errorPage/index.jsx",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/errorPage/index.jsx~ErrorPage",
+    "access": "public",
+    "export": true,
+    "importPath": "front_end/src/errorPage/index.jsx",
+    "importStyle": "ErrorPage",
+    "description": "Shows a error indicator",
+    "lineNumber": 6,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 59,
+    "kind": "file",
     "name": "src/index.jsx",
-    "content": "import React from 'react';\nimport ReactDOM from 'react-dom';\n\nimport Core from './core';\n\nReactDOM.render(\n  <Core />,\n  document.getElementById(APP_MOUNT_ID),\n);\n",
+    "content": "import React from 'react';\nimport { render } from 'react-dom';\n\nimport App from './app';\n\nrender( <App />, document.getElementById(APP_MOUNT_ID) );\n",
     "static": true,
     "longname": "/home/node/app/src/index.jsx",
     "access": "public",
@@ -627,8 +826,37 @@
     "lineNumber": 1
   },
   {
+    "__docId__": 60,
+    "kind": "file",
+    "name": "src/loading/index.jsx",
+    "content": "import React from 'react';\n\n/**\n * Shows a loading indicator\n */\nconst Loading = () => (\n  <div><p>Loading...</p></div>\n);\n\nexport default Loading;\n",
+    "static": true,
+    "longname": "/home/node/app/src/loading/index.jsx",
+    "access": "public",
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 61,
+    "kind": "function",
+    "name": "Loading",
+    "memberof": "src/loading/index.jsx",
+    "generator": false,
+    "async": false,
+    "static": true,
+    "longname": "src/loading/index.jsx~Loading",
+    "access": "public",
+    "export": true,
+    "importPath": "front_end/src/loading/index.jsx",
+    "importStyle": "Loading",
+    "description": "Shows a loading indicator",
+    "lineNumber": 6,
+    "params": [],
+    "return": null
+  },
+  {
     "kind": "index",
-    "content": "# Front End",
+    "content": "----\n# Front End\n\nDOM container wrapped by an error boundary and dynamically loaded components",
     "longname": "/home/node/app/README.md",
     "name": "./README.md",
     "static": true,
@@ -636,14 +864,41 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"front_end\",\n  \"version\": \"0.0.1\",\n  \"description\": \"Website front end\",\n  \"main\": \"index.js\",\n  \"repository\": \"https://github.com/wallyfaye/website\",\n  \"author\": \"Wally Faye\",\n  \"license\": \"MIT\",\n  \"scripts\": {\n    \"docs\": \"esdoc\",\n    \"start\": \"yarn run start:install && yarn run start:app\",\n    \"start:install\": \"yarn install\",\n    \"start:app\": \"webpack-dev-server --color\",\n    \"webpack:build\": \"webpack\",\n    \"test\": \"yarn run test:jest\",\n    \"test:jest\": \"jest --colors\",\n    \"test:update\": \"jest -u --colors\"\n  },\n  \"dependencies\": {\n    \"prop-types\": \"*\",\n    \"react\": \"*\",\n    \"react-dom\": \"*\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"*\",\n    \"@babel/preset-env\": \"*\",\n    \"@babel/preset-react\": \"*\",\n    \"babel-eslint\": \"*\",\n    \"babel-loader\": \"*\",\n    \"babel-jest\": \"*\",\n    \"clean-webpack-plugin\": \"*\",\n    \"esdoc\": \"*\",\n    \"esdoc-jsx-plugin\": \"*\",\n    \"esdoc-standard-plugin\": \"*\",\n    \"eslint\": \"*\",\n    \"eslint-config-airbnb\": \"*\",\n    \"eslint-loader\": \"*\",\n    \"eslint-plugin-import\": \"*\",\n    \"eslint-plugin-jest\": \"*\",\n    \"eslint-plugin-jsx-a11y\": \"*\",\n    \"eslint-plugin-react\": \"*\",\n    \"express\": \"*\",\n    \"file-loader\": \"*\",\n    \"html-webpack-plugin\": \"*\",\n    \"html-webpack-template\": \"*\",\n    \"jest\": \"*\",\n    \"react-test-renderer\": \"*\",\n    \"webpack\": \"*\",\n    \"webpack-cli\": \"*\",\n    \"webpack-dev-middleware\": \"*\",\n    \"webpack-dev-server\": \"*\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"front_end\",\n  \"version\": \"0.0.1\",\n  \"description\": \"Website front end\",\n  \"main\": \"index.js\",\n  \"repository\": \"https://github.com/wallyfaye/website\",\n  \"author\": \"Wally Faye\",\n  \"license\": \"MIT\",\n  \"scripts\": {\n    \"docs\": \"esdoc\",\n    \"start\": \"yarn run start:install --verbose && yarn run start:app --verbose\",\n    \"start:install\": \"yarn install\",\n    \"start:app\": \"webpack-dev-server --color\",\n    \"webpack:build\": \"webpack\",\n    \"test\": \"yarn run test:jest\",\n    \"test:jest\": \"jest --colors --watchAll\",\n    \"test:update\": \"jest -u --colors\"\n  },\n  \"dependencies\": {\n    \"prop-types\": \"*\",\n    \"react\": \"*\",\n    \"react-dom\": \"*\"\n  },\n  \"devDependencies\": {\n    \"@babel/core\": \"*\",\n    \"@babel/plugin-syntax-dynamic-import\": \"*\",\n    \"@babel/preset-env\": \"*\",\n    \"@babel/preset-react\": \"*\",\n    \"babel-eslint\": \"*\",\n    \"babel-loader\": \"*\",\n    \"babel-plugin-dynamic-import-node\": \"*\",\n    \"babel-jest\": \"*\",\n    \"clean-webpack-plugin\": \"*\",\n    \"esdoc\": \"*\",\n    \"esdoc-jsx-plugin\": \"*\",\n    \"esdoc-standard-plugin\": \"*\",\n    \"eslint\": \"*\",\n    \"eslint-config-airbnb\": \"*\",\n    \"eslint-loader\": \"*\",\n    \"eslint-plugin-import\": \"*\",\n    \"eslint-plugin-jest\": \"*\",\n    \"eslint-plugin-jsx-a11y\": \"*\",\n    \"eslint-plugin-react\": \"*\",\n    \"express\": \"*\",\n    \"file-loader\": \"*\",\n    \"html-webpack-plugin\": \"*\",\n    \"html-webpack-template\": \"*\",\n    \"jest\": \"*\",\n    \"react-test-renderer\": \"*\",\n    \"webpack\": \"*\",\n    \"webpack-cli\": \"*\",\n    \"webpack-dev-middleware\": \"*\",\n    \"webpack-dev-server\": \"*\"\n  }\n}\n",
     "longname": "/home/node/app/package.json",
     "name": "package.json",
     "static": true,
     "access": "public"
   },
   {
-    "__docId__": 51,
+    "__docId__": 62,
+    "kind": "testFile",
+    "name": "src/app/index.test.js",
+    "content": "import React from 'react';\nimport App from './index';\nimport renderer from 'react-test-renderer';\n\n/** @test {App} */\ntest('App should render', () => {\n  const component = renderer.create(\n    <App />,\n  );\n  const tree = component.toJSON();\n  expect(tree).toMatchSnapshot();\n});\n",
+    "static": true,
+    "longname": "/home/node/app/src/app/index.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 63,
+    "kind": "test",
+    "name": "test0",
+    "testId": 0,
+    "memberof": "src/app/index.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "src/app/index.test.js~test0",
+    "access": null,
+    "description": "App should render",
+    "lineNumber": 6,
+    "testTargets": [
+      "App"
+    ]
+  },
+  {
+    "__docId__": 64,
     "kind": "testFile",
     "name": "src/core/index.test.js",
     "content": "import React from 'react';\nimport Core from './index';\nimport renderer from 'react-test-renderer';\n\n/** @test {Core} */\ntest('Core should render', () => {\n  const component = renderer.create(\n    <Core />,\n  );\n  const tree = component.toJSON();\n  expect(tree).toMatchSnapshot();\n});\n",
@@ -654,19 +909,100 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 52,
+    "__docId__": 65,
     "kind": "test",
-    "name": "test0",
-    "testId": 0,
+    "name": "test1",
+    "testId": 1,
     "memberof": "src/core/index.test.js",
     "testDepth": 0,
     "static": true,
-    "longname": "src/core/index.test.js~test0",
+    "longname": "src/core/index.test.js~test1",
     "access": null,
     "description": "Core should render",
     "lineNumber": 6,
     "testTargets": [
       "Core"
+    ]
+  },
+  {
+    "__docId__": 66,
+    "kind": "testFile",
+    "name": "src/errorBoundary/index.test.js",
+    "content": "import React, { Component } from 'react';\nimport ErrorBoundary from './index';\nimport renderer from 'react-test-renderer';\n\nclass ErrorComponent extends Component {\n  render() {\n    throw new Error('ErrorComponent throws error')\n    return <div>ErrorComponent</div>\n  }\n}\n\n/** @test {ErrorBoundary} */\ntest('ErrorBoundary should render', () => {\n  const component = renderer.create(\n    <ErrorBoundary>\n      <ErrorComponent />\n    </ErrorBoundary>,\n  );\n  const tree = component.toJSON();\n  expect(tree).toMatchSnapshot();\n});\n",
+    "static": true,
+    "longname": "/home/node/app/src/errorBoundary/index.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 67,
+    "kind": "test",
+    "name": "test2",
+    "testId": 2,
+    "memberof": "src/errorBoundary/index.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "src/errorBoundary/index.test.js~test2",
+    "access": null,
+    "description": "ErrorBoundary should render",
+    "lineNumber": 13,
+    "testTargets": [
+      "ErrorBoundary"
+    ]
+  },
+  {
+    "__docId__": 68,
+    "kind": "testFile",
+    "name": "src/errorPage/index.test.js",
+    "content": "import React from 'react';\nimport ErrorPage from './index';\nimport renderer from 'react-test-renderer';\n\n/** @test {ErrorPage} */\ntest('ErrorPage should render', () => {\n  const component = renderer.create(\n    <ErrorPage />,\n  );\n  const tree = component.toJSON();\n  expect(tree).toMatchSnapshot();\n});\n",
+    "static": true,
+    "longname": "/home/node/app/src/errorPage/index.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 69,
+    "kind": "test",
+    "name": "test3",
+    "testId": 3,
+    "memberof": "src/errorPage/index.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "src/errorPage/index.test.js~test3",
+    "access": null,
+    "description": "ErrorPage should render",
+    "lineNumber": 6,
+    "testTargets": [
+      "ErrorPage"
+    ]
+  },
+  {
+    "__docId__": 70,
+    "kind": "testFile",
+    "name": "src/loading/index.test.js",
+    "content": "import React from 'react';\nimport Loading from './index';\nimport renderer from 'react-test-renderer';\n\n/** @test {Loading} */\ntest('Loading should render', () => {\n  const component = renderer.create(\n    <Loading />,\n  );\n  const tree = component.toJSON();\n  expect(tree).toMatchSnapshot();\n});\n",
+    "static": true,
+    "longname": "/home/node/app/src/loading/index.test.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1
+  },
+  {
+    "__docId__": 71,
+    "kind": "test",
+    "name": "test4",
+    "testId": 4,
+    "memberof": "src/loading/index.test.js",
+    "testDepth": 0,
+    "static": true,
+    "longname": "src/loading/index.test.js~test4",
+    "access": null,
+    "description": "Loading should render",
+    "lineNumber": 6,
+    "testTargets": [
+      "Loading"
     ]
   }
 ]

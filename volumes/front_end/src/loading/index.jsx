@@ -1,8 +1,7 @@
 import React from 'react';
 
 /**
- * @param {Object} [param] - this is object param.
- * @param {number} [param.siteName=Website] - this is siteName param.
+ * Shows a loading indicator
  */
 const Loading = () => (
   <div><p>Loading...</p></div>

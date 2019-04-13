@@ -1,9 +1,24 @@
 {
   "coverage": "100%",
-  "expectCount": 1,
-  "actualCount": 1,
+  "expectCount": 9,
+  "actualCount": 9,
   "files": {
     "src/core/index.jsx": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/errorBoundary/index.jsx": {
+      "expectCount": 6,
+      "actualCount": 6,
+      "undocumentLines": []
+    },
+    "src/errorPage/index.jsx": {
+      "expectCount": 1,
+      "actualCount": 1,
+      "undocumentLines": []
+    },
+    "src/loading/index.jsx": {
       "expectCount": 1,
       "actualCount": 1,
       "undocumentLines": []

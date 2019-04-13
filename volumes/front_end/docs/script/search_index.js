@@ -6,9 +6,51 @@ window.esdocSearchIndex = [
     "function"
   ],
   [
+    "front_end/src/errorboundary/index.jsx~errorboundary",
+    "class/src/errorBoundary/index.jsx~ErrorBoundary.html",
+    "<span>ErrorBoundary</span> <span class=\"search-result-import-path\">front_end/src/errorBoundary/index.jsx</span>",
+    "class"
+  ],
+  [
+    "front_end/src/errorpage/index.jsx~errorpage",
+    "function/index.html#static-function-ErrorPage",
+    "<span>ErrorPage</span> <span class=\"search-result-import-path\">front_end/src/errorPage/index.jsx</span>",
+    "function"
+  ],
+  [
+    "front_end/src/loading/index.jsx~loading",
+    "function/index.html#static-function-Loading",
+    "<span>Loading</span> <span class=\"search-result-import-path\">front_end/src/loading/index.jsx</span>",
+    "function"
+  ],
+  [
+    "app app,app",
+    "test-file/src/app/index.test.js.html#lineNumber6",
+    "App should render",
+    "test"
+  ],
+  [
     "core src/core/index.jsx~core,core",
     "test-file/src/core/index.test.js.html#lineNumber6",
     "Core should render",
+    "test"
+  ],
+  [
+    "errorboundary src/errorboundary/index.jsx~errorboundary,errorboundary",
+    "test-file/src/errorBoundary/index.test.js.html#lineNumber13",
+    "ErrorBoundary should render",
+    "test"
+  ],
+  [
+    "errorpage src/errorpage/index.jsx~errorpage,errorpage",
+    "test-file/src/errorPage/index.test.js.html#lineNumber6",
+    "ErrorPage should render",
+    "test"
+  ],
+  [
+    "loading src/loading/index.jsx~loading,loading",
+    "test-file/src/loading/index.test.js.html#lineNumber6",
+    "Loading should render",
     "test"
   ],
   [
@@ -294,6 +336,12 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "src/app/index.test.js",
+    "test-file/src/app/index.test.js.html",
+    "src/app/index.test.js",
+    "testFile"
+  ],
+  [
     "src/core/index.jsx",
     "file/src/core/index.jsx.html",
     "src/core/index.jsx",
@@ -306,9 +354,75 @@ window.esdocSearchIndex = [
     "testFile"
   ],
   [
+    "src/errorboundary/index.jsx",
+    "file/src/errorBoundary/index.jsx.html",
+    "src/errorBoundary/index.jsx",
+    "file"
+  ],
+  [
+    "src/errorboundary/index.jsx~errorboundary#componentdidcatch",
+    "class/src/errorBoundary/index.jsx~ErrorBoundary.html#instance-method-componentDidCatch",
+    "src/errorBoundary/index.jsx~ErrorBoundary#componentDidCatch",
+    "method"
+  ],
+  [
+    "src/errorboundary/index.jsx~errorboundary#constructor",
+    "class/src/errorBoundary/index.jsx~ErrorBoundary.html#instance-constructor-constructor",
+    "src/errorBoundary/index.jsx~ErrorBoundary#constructor",
+    "method"
+  ],
+  [
+    "src/errorboundary/index.jsx~errorboundary#render",
+    "class/src/errorBoundary/index.jsx~ErrorBoundary.html#instance-method-render",
+    "src/errorBoundary/index.jsx~ErrorBoundary#render",
+    "method"
+  ],
+  [
+    "src/errorboundary/index.jsx~errorboundary#state",
+    "class/src/errorBoundary/index.jsx~ErrorBoundary.html#instance-member-state",
+    "src/errorBoundary/index.jsx~ErrorBoundary#state",
+    "member"
+  ],
+  [
+    "src/errorboundary/index.jsx~errorboundary.getderivedstatefromerror",
+    "class/src/errorBoundary/index.jsx~ErrorBoundary.html#static-method-getDerivedStateFromError",
+    "src/errorBoundary/index.jsx~ErrorBoundary.getDerivedStateFromError",
+    "method"
+  ],
+  [
+    "src/errorboundary/index.test.js",
+    "test-file/src/errorBoundary/index.test.js.html",
+    "src/errorBoundary/index.test.js",
+    "testFile"
+  ],
+  [
+    "src/errorpage/index.jsx",
+    "file/src/errorPage/index.jsx.html",
+    "src/errorPage/index.jsx",
+    "file"
+  ],
+  [
+    "src/errorpage/index.test.js",
+    "test-file/src/errorPage/index.test.js.html",
+    "src/errorPage/index.test.js",
+    "testFile"
+  ],
+  [
     "src/index.jsx",
     "file/src/index.jsx.html",
     "src/index.jsx",
     "file"
+  ],
+  [
+    "src/loading/index.jsx",
+    "file/src/loading/index.jsx.html",
+    "src/loading/index.jsx",
+    "file"
+  ],
+  [
+    "src/loading/index.test.js",
+    "test-file/src/loading/index.test.js.html",
+    "src/loading/index.test.js",
+    "testFile"
   ]
 ]

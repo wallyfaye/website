@@ -30,20 +30,20 @@
   <ul>
     
   <li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#core">core</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Core">Core</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#errorboundary">errorBoundary</a><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/errorBoundary/index.jsx~ErrorBoundary.html">ErrorBoundary</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#errorpage">errorPage</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ErrorPage">ErrorPage</a></span></span></li>
+<li data-ice="doc"><a data-ice="dirPath" class="nav-dir-path" href="identifiers.html#loading">loading</a><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-Loading">Loading</a></span></span></li>
 </ul>
 </div>
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/index.jsx</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import React from &apos;react&apos;;
-import ReactDOM from &apos;react-dom&apos;;
+import { render } from &apos;react-dom&apos;;
 
-import Core from &apos;./core&apos;;
+import App from &apos;./app&apos;;
 
-ReactDOM.render(
-  &lt;Core /&gt;,
-  document.getElementById(APP_MOUNT_ID),
-);
+render( &lt;App /&gt;, document.getElementById(APP_MOUNT_ID) );
 </code></pre>
 
 </div>
