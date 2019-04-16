@@ -7,7 +7,6 @@ import ErrorPage from '../errorPage';
  * ErrorBoundary catches errors, shows ErrorPage and logs the error.
  */
 class ErrorBoundary extends Component {
-  
   /**
    * @param {object} props - properties.
    */

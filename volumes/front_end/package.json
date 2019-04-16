@@ -19,7 +19,9 @@
   "dependencies": {
     "prop-types": "*",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "react-router-dom": "*",
+    "react-transition-group": "*"
   },
   "devDependencies": {
     "@babel/core": "*",
