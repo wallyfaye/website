@@ -13,3 +13,19 @@ services:
       APP_MOUNT_ID: ${APP_MOUNT_ID}
       WEBSITE_NAME: ${WEBSITE_NAME}
     command: "npm run ${NPM_SCRIPT}"
+  back_end:
+    image: "node:alpine"
+    build: ./services/back_end
+    working_dir: /home/node/app
+    volumes:
+     - ${PWD}/volumes/back_end:/home/node/app:rw
+    ports:
+     - "8080:8080"
+    command: "npm run ${BE_NPM_SCRIPT}"
+  db:
+    image: "postgres:alpine"
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: example
+      POSTGRES_DB: example

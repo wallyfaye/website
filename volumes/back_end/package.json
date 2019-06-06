@@ -1,0 +1,36 @@
+{
+  "name": "front_end",
+  "version": "0.0.1",
+  "description": "Website back end",
+  "main": "index.js",
+  "repository": "https://github.com/wallyfaye/website",
+  "author": "Wally Faye",
+  "license": "MIT",
+  "scripts": {
+    "docs": "esdoc",
+    "start": "yarn run start:install --verbose && nodemon --exec babel-node ./src/index.js",
+    "start:app": "webpack-dev-server --color",
+    "start:install": "yarn install",
+    "test": "yarn run test:jest",
+    "test:jest": "jest --colors --watchAll",
+    "test:update": "jest -u --colors"
+  },
+  "devDependencies": {
+    "@babel/core": "*",
+    "@babel/node": "*",
+    "@babel/plugin-syntax-dynamic-import": "*",
+    "@babel/preset-env": "*",
+    "babel-eslint": "*",
+    "babel-plugin-dynamic-import-node": "*",
+    "babel-jest": "*",
+    "esdoc": "*",
+    "esdoc-standard-plugin": "*",
+    "eslint": "*",
+    "eslint-loader": "*",
+    "eslint-plugin-import": "*",
+    "eslint-plugin-jest": "*",
+    "jest": "*",
+    "koa": "*",
+    "nodemon": "*"
+  }
+}

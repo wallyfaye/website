@@ -1,0 +1,1 @@
+docker logs website_back_end_1 -f
