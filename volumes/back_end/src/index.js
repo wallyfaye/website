@@ -1,10 +1,10 @@
-const Koa = require('koa');
-const app = new Koa();
+import server from './server'
+import db from './db'
 
-// response
-app.use(ctx => {
-  console.log('test')
-  ctx.body = 'Hello Koa';
-});
+(async () => {
+  server()
+  const client = await db()
 
-app.listen(8080);
+  const res = await client.query('SELECT $1::text as message', ['Hello world!'])
+  console.log(res.rows[0].message)
+})()

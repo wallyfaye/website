@@ -3,6 +3,7 @@
     "jest/globals": true
   },
   "extends": [
+    "standard",
     "plugin:jest/recommended"
   ],
   "parser": "babel-eslint",
