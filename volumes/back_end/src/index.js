@@ -2,9 +2,15 @@ import server from './server'
 import db from './db'
 
 (async () => {
-  server()
+  const app = server()
   const client = await db()
 
   const res = await client.query('SELECT $1::text as message', ['Hello world!'])
-  console.log(res.rows[0].message)
+
+  app.use(ctx => {
+    ctx.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+    ctx.body = {
+      test: `Hello Koa - ${res.rows[0].message}`
+    }
+  })
 })()
