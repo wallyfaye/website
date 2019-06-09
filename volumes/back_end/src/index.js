@@ -1,16 +1,22 @@
 import server from './server'
-import db from './db'
+import orm from './orm'
+import { page } from './models'
 
 (async () => {
   const app = server()
-  const client = await db()
 
-  const res = await client.query('SELECT $1::text as message', ['Hello world!'])
+  const models = await orm({
+    Page: page
+  })
+
+  const home = new models.Page({
+    name: 'home'
+  })
 
   app.use(ctx => {
     ctx.set('Access-Control-Allow-Origin', 'http://localhost:3000')
     ctx.body = {
-      test: `Hello Koa - ${res.rows[0].message}`
+      test: `Hello Koa - ${home.name}`
     }
   })
 })()
