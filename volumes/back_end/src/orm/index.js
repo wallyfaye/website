@@ -1,21 +1,31 @@
-// import database from '../database'
+import database from '../database'
 
-// const init = async () => {
-//   const db = await database()
-//   const res = await db.query('SELECT $1::text as message', ['Hello world!'])
+const createTable = async (params = {}) => {
+  const { Model, db, schema } = params
+  const { name } = Model
 
-//   return res.rows[0].message
-// }
+  const res = await db.query(
+    `
+      CREATE TABLE IF NOT EXISTS ${name.toLowerCase()}(
+        ${'name'} ${schema.name.type} (${schema.name.characters}) NOT NULL
+      )
+    `
+  )
+
+  console.log(res)
+}
 
 export default async (models = {}) => {
   const modelObjects = {}
-  // const modelObjects = await init()
+  const db = await database()
 
-  Object.keys(models).map((model) => {
-    // get the schema and create a db representation
-    console.log(models[model].schema)
+  for (const model of Object.keys(models)) {
+    await createTable({
+      db,
+      ...models[model]
+    })
     modelObjects[model] = models[model]
-  })
+  }
 
   return modelObjects
 }

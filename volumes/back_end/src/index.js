@@ -1,15 +1,15 @@
 import server from './server'
 import orm from './orm'
-import { page } from './models'
+import { Page } from './models'
 
 (async () => {
   const app = server()
 
   const models = await orm({
-    Page: page
+    Page
   })
 
-  const home = new models.Page({
+  const home = new models.Page.Model({
     name: 'home'
   })
 

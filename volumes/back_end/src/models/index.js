@@ -1,5 +1,5 @@
-import page from './page'
+import Page from './page'
 
 export {
-  page
+  Page
 }
