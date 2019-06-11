@@ -1,18 +1,31 @@
 import database from '../database'
 
-const createTable = async (params = {}) => {
+const createTable = (params = {}) => {
   const { Model, db, schema } = params
-  const { name } = Model
+  const { name: constructorName } = Model
 
-  const res = await db.query(
-    `
-      CREATE TABLE IF NOT EXISTS ${name.toLowerCase()}(
-        ${'name'} ${schema.name.type} (${schema.name.characters}) NOT NULL
-      )
-    `
-  )
+  const tableName = constructorName.toLowerCase()
 
-  console.log(res)
+  const columns = Object.keys(schema).reduce((accumulator, key) => {
+    const column = schema[key]
+    const { type, characters } = column
+
+    return (accumulator += `${key} ${type} (${characters}) NOT NULL`)
+  }, '')
+
+  const query = `CREATE TABLE IF NOT EXISTS ${tableName}(${columns})`
+
+  console.log(query)
+
+  return db.query(query)
+}
+
+const insert = ({ model }) => {
+  // const { name: constructorName } = model
+
+  // const tableName = constructorName.toLowerCase()
+
+  console.log('insert')
 }
 
 export default async (models = {}) => {
@@ -24,7 +37,14 @@ export default async (models = {}) => {
       db,
       ...models[model]
     })
-    modelObjects[model] = models[model]
+
+    modelObjects[model] = {
+      insert: () => {
+        insert({
+          model: models[model]
+        })
+      }
+    }
   }
 
   return modelObjects

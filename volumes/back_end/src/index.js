@@ -9,7 +9,7 @@ import { Page } from './models'
     Page
   })
 
-  const home = new models.Page.Model({
+  const home = models.Page.insert({
     name: 'home'
   })
 
@@ -20,3 +20,5 @@ import { Page } from './models'
     }
   })
 })()
+
+console.log('starting')
