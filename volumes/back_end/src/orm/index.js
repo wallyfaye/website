@@ -1,48 +1,44 @@
 import database from '../database'
-
-const createTable = (params = {}) => {
-  const { Model, db, schema } = params
-  const { name: constructorName } = Model
-
-  const tableName = constructorName.toLowerCase()
-
-  const columns = Object.keys(schema).reduce((accumulator, key) => {
-    const column = schema[key]
-    const { type, characters } = column
-
-    return (accumulator += `${key} ${type} (${characters}) NOT NULL`)
-  }, '')
-
-  const query = `CREATE TABLE IF NOT EXISTS ${tableName}(${columns})`
-
-  console.log(query)
-
-  return db.query(query)
-}
-
-const insert = ({ model }) => {
-  // const { name: constructorName } = model
-
-  // const tableName = constructorName.toLowerCase()
-
-  console.log('insert')
-}
+import createTable from './createTable'
+import insert from './insert'
+import select from './select'
 
 export default async (models = {}) => {
   const modelObjects = {}
   const db = await database()
 
   for (const model of Object.keys(models)) {
-    await createTable({
-      db,
-      ...models[model]
+    const { Model, schema } = models[model]
+    const { name: constructorName } = Model
+    const tableName = constructorName.toLowerCase()
+
+    const createTableQuery = createTable({
+      schema,
+      tableName
     })
 
+    await db.query(createTableQuery)
+
     modelObjects[model] = {
-      insert: () => {
-        insert({
-          model: models[model]
+      insert: async (data) => {
+        const query = insert({
+          schema,
+          tableName,
+          data
         })
+
+        await db.query(query)
+      },
+      select: async ({ where = {} }) => {
+        const query = select({
+          schema,
+          tableName,
+          where
+        })
+
+        const result = await db.query(query)
+
+        return result
       }
     }
   }
