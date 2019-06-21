@@ -9,6 +9,7 @@
   "scripts": {
     "docs": "esdoc",
     "start": "yarn run start:install --verbose && nodemon --exec 'eslint --fix src && babel-node -r ./node_modules/dotenv/config ./src/index.js dotenv_config_path=/run/secrets/db_info'",
+    "start:lite": "yarn run start:install --verbose && nodemon --exec 'babel-node -r ./node_modules/dotenv/config ./src/index.js dotenv_config_path=/run/secrets/db_info'",
     "start:app": "webpack-dev-server --color",
     "start:install": "yarn install",
     "test": "yarn run test:jest",
@@ -35,7 +36,6 @@
     "eslint-plugin-import": "*",
     "eslint-plugin-node": "*",
     "jest": "*",
-    "koa": "*",
     "nodemon": "*",
     "pg": "*"
   }
